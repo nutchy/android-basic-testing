@@ -42,6 +42,13 @@ public class NameValidationTest {
     }
 
     @Test
+    public void lengthMoreThanTwo(){
+        NameValidation nameValidation = new NameValidation();
+        boolean result = nameValidation.checkLength("abcdefghijklmnopabcdefghtjklmno");
+        assertFalse("Name Length less than 2 char.", result);
+    }
+
+    @Test
     public void nameContainAlphabet(){
         NameValidation nameValidation = new NameValidation();
         boolean result = nameValidation.containAlphabet("Somkiat");
