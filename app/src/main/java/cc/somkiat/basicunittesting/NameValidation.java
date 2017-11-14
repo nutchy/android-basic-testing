@@ -15,4 +15,11 @@ class NameValidation {
         }
         else return true;
     }
+
+    public boolean containAlphabet(String name) {
+        if (name.matches("[a-zA-Z]+")){
+            return true;
+        }
+        else return false;
+    }
 }

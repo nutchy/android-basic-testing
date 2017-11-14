@@ -25,4 +25,11 @@ public class NameValidationTest {
         boolean result = nameValidation.checkLength("Somkiat");
         assertTrue("", result);
     }
+
+    @Test
+    public void nameContainAlphabet(){
+        NameValidation nameValidation = new NameValidation();
+        boolean result = nameValidation.containAlphabet("Somkiat");
+        assertTrue("", result);
+    }
 }
