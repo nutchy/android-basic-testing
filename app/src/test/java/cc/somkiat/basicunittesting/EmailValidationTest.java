@@ -22,4 +22,12 @@ public class EmailValidationTest {
         boolean result = emailValidation.isEmpty("");
         assertTrue("", result);
     }
+
+    @Test
+    public void isPattern(){
+        EmailValidation emailValidation = new EmailValidation();
+        boolean result = emailValidation.isPattern("abc@xyz.com");
+        assertTrue("", result);
+
+    }
 }
