@@ -6,9 +6,17 @@ import static org.junit.Assert.assertTrue;
 
 public class NameValidationTest {
     @Test
-    public void isEmpty(){
+    public void caseEmpty(){
         NameValidation nameValidation = new NameValidation();
         boolean result = nameValidation.isEmpty("");
         assertTrue("", result);
     }
+
+    @Test
+    public void caseNull(){
+        NameValidation nameValidation = new NameValidation();
+        boolean result = nameValidation.isNull(null);
+        assertTrue("", result);
+    }
+
 }
