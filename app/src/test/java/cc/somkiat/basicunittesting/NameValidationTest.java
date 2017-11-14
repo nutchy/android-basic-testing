@@ -28,10 +28,17 @@ public class NameValidationTest {
     }
 
     @Test
-    public void lengthInRange(){
+    public void lengthBetweenTwoAndTwenty(){
         NameValidation nameValidation = new NameValidation();
         boolean result = nameValidation.checkLength("Somkiat");
         assertTrue("", result);
+    }
+
+    @Test
+    public void lengthLessThanTwo(){
+        NameValidation nameValidation = new NameValidation();
+        boolean result = nameValidation.checkLength("s");
+        assertFalse("Name Length less than 2 char.", result);
     }
 
     @Test

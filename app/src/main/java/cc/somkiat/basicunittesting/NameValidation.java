@@ -10,16 +10,10 @@ class NameValidation {
     }
 
     public boolean checkLength(String name) {
-        if (name.length() < 2 || name.length() > 20){
-            return false;
-        }
-        else return true;
+        return (name.length() >= 2 && name.length() <= 20);
     }
 
     public boolean containAlphabet(String name) {
-        if (name.matches("[a-zA-Z]+")){
-            return true;
-        }
-        else return false;
+        return (name.matches("[a-zA-Z]+"));
     }
 }
