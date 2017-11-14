@@ -4,10 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by nutchy on 15/11/2017 AD.
- */
-
 public class EmailValidationTest {
     @Test
     public void isNull(){
@@ -28,6 +24,5 @@ public class EmailValidationTest {
         EmailValidation emailValidation = new EmailValidation();
         boolean result = emailValidation.isPattern("abc@xyz.com");
         assertTrue("", result);
-
     }
 }
