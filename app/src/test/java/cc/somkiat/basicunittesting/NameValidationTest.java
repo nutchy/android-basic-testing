@@ -2,6 +2,7 @@ package cc.somkiat.basicunittesting;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class NameValidationTest {
@@ -13,10 +14,17 @@ public class NameValidationTest {
     }
 
     @Test
-    public void caseNull(){
+    public void isNull(){
         NameValidation nameValidation = new NameValidation();
         boolean result = nameValidation.isNull(null);
         assertTrue("", result);
+    }
+
+    @Test
+    public void isNotNull(){
+        NameValidation nameValidation = new NameValidation();
+        boolean result = nameValidation.isNull("Hello");
+        assertFalse("", result);
     }
 
     @Test
