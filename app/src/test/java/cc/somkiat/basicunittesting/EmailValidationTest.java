@@ -15,4 +15,11 @@ public class EmailValidationTest {
         boolean result = emailValidation.isNull(null);
         assertTrue("",result);
     }
+
+    @Test
+    public void isEmpty(){
+        EmailValidation emailValidation = new EmailValidation();
+        boolean result = emailValidation.isEmpty("");
+        assertTrue("", result);
+    }
 }
