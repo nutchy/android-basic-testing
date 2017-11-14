@@ -3,6 +3,7 @@ package cc.somkiat.basicunittesting;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class EmailValidationTest {
     @Test
@@ -10,6 +11,13 @@ public class EmailValidationTest {
         EmailValidation emailValidation = new EmailValidation();
         boolean result = emailValidation.isNull(null);
         assertTrue("",result);
+    }
+
+    @Test
+    public void isNotNull(){
+        EmailValidation emailValidation = new EmailValidation();
+        boolean result = emailValidation.isNull("abc@xyz.com");
+        assertFalse("",result);
     }
 
     @Test
