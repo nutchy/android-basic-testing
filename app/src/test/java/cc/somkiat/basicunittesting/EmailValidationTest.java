@@ -23,16 +23,17 @@ public class EmailValidationTest {
 
     @Test
     public void isNull(){
-        ResultValidation result = emailValidation.validation(null);
+        user.setEmail(null);
+        ResultValidation result = emailValidation.validation(user.getEmail());
         assertFalse(result.getMessage(),result.getResult());
     }
 
-//    @Test
-//    public void isNotNull(){
-//        EmailValidation emailValidation = new EmailValidation();
-//        boolean result = emailValidation.isNull("abc@xyz.com");
-//        assertFalse("",result);
-//    }
+    @Test
+    public void isNotNull(){
+        user.setEmail("abc@xyz.com");
+        ResultValidation result = emailValidation.validation(user.getEmail());
+        assertTrue(result.getMessage(),result.getResult());
+    }
 
     @Test
     public void isEmpty(){

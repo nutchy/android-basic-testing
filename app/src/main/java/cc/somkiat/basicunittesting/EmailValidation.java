@@ -10,10 +10,10 @@ public class EmailValidation {
 
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
-    public ResultValidation validation(String email){
+    public ResultValidation validation(String email) {
         try {
             isNull(email);
-        } catch (EmailException e) {
+        } catch (Exception e) {
             return new ResultValidation(false, e.getMessage());
         }
         return new ResultValidation(true, "No Exception.");
@@ -21,10 +21,11 @@ public class EmailValidation {
 
 
     public void isNull(String email) throws EmailException {
-        if (email == null){
+        if (email == null) {
             throw new EmailException("Email is null");
         }
     }
+
 
     public boolean isEmpty(String email) {
         return email.isEmpty();
@@ -34,4 +35,6 @@ public class EmailValidation {
         Pattern validEmailPattern = Pattern.compile(EMAIL_PATTERN);
         return validEmailPattern.matcher(email).matches();
     }
+
+
 }
