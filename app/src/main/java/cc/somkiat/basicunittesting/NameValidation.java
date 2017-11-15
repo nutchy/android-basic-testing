@@ -10,6 +10,7 @@ class NameValidation {
             isEmpty(name);
             isNull(name);
             notInRange(name);
+            isNotContainAlphabet(name);
         } catch (Exception e) {
             return new ResultValidation(false, e.getMessage());
         }
@@ -34,7 +35,9 @@ class NameValidation {
         }
     }
 
-    public boolean containAlphabet(String name) {
-        return (name.matches("[a-zA-Z]+"));
+    public void isNotContainAlphabet(String name) throws NameException {
+         if(!name.matches("[a-zA-Z]+")){
+             throw new NameException("Some char in name is not contain Alphabet");
+         }
     }
 }

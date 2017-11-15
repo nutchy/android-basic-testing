@@ -62,8 +62,20 @@ public class NameValidationTest {
     }
 
     @Test
+    public void nameNotContainAlphabet(){
+        ResultValidation result = nameValidation.validate("Somkiat1");
+        assertFalse(result.getMessage(), result.getResult());
+    }
+
+    @Test
     public void nameContainAlphabet(){
-        boolean result = nameValidation.containAlphabet("Somkiat");
-        assertTrue("", result);
+        ResultValidation result = nameValidation.validate("Somkiat");
+        assertTrue(result.getMessage(), result.getResult());
+    }
+
+    @Test
+    public void nameNotContainSymbol(){
+        ResultValidation result = nameValidation.validate("Somkiat@#$%^&");
+        assertFalse(result.getMessage(), result.getResult());
     }
 }
