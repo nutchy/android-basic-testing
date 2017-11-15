@@ -33,11 +33,12 @@ public class NameValidationTest {
         assertFalse(result.getMessage(), result.getResult());
     }
 
-//    @Test
-//    public void isNotNull(){
-//        boolean result = nameValidation.isNull("Hello");
-//        assertFalse("", result);
-//    }
+    @Test
+    public void isNotNull(){
+        user.setName("Chayanon");
+        ResultValidation result = nameValidation.validate(user.getName());
+        assertTrue(result.getMessage(), result.getResult());
+    }
 
     @Test
     public void lengthBetweenTwoAndTwenty(){
