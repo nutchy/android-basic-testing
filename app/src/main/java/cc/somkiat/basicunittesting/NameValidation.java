@@ -9,6 +9,7 @@ class NameValidation {
         try {
             isEmpty(name);
             isNull(name);
+            notInRange(name);
         } catch (Exception e) {
             return new ResultValidation(false, e.getMessage());
         }
@@ -27,8 +28,10 @@ class NameValidation {
         }
     }
 
-    public boolean checkLength(String name) {
-        return (name.length() >= 2 && name.length() <= 20);
+    public void notInRange(String name) throws NameException {
+        if (name.length() < 2 || name.length() > 20){
+            throw new NameException("Name length is more than 20 char, less than 2 char");
+        }
     }
 
     public boolean containAlphabet(String name) {

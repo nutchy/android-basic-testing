@@ -42,20 +42,23 @@ public class NameValidationTest {
 
     @Test
     public void lengthBetweenTwoAndTwenty(){
-        boolean result = nameValidation.checkLength("Somkiat");
-        assertTrue("", result);
+        user.setName("Somkiat");
+        ResultValidation result = nameValidation.validate(user.getName());
+        assertTrue(result.getMessage(), result.getResult());
     }
 
     @Test
     public void lengthLessThanTwo(){
-        boolean result = nameValidation.checkLength("s");
-        assertFalse("Name Length less than 2 char.", result);
+        user.setName("s");
+        ResultValidation result = nameValidation.validate(user.getName());
+        assertFalse(result.getMessage(), result.getResult());
     }
 
     @Test
     public void lengthMoreThanTwo(){
-        boolean result = nameValidation.checkLength("abcdefghijklmnopabcdefghtjklmno");
-        assertFalse("Name Length less than 2 char.", result);
+        user.setName("abcdefghijklmnopabcdefghtjklmno");
+        ResultValidation result = nameValidation.validate(user.getName());
+        assertFalse(result.getMessage(), result.getResult());
     }
 
     @Test
