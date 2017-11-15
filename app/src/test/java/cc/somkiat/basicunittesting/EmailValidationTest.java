@@ -45,7 +45,7 @@ public class EmailValidationTest {
     @Test
     public void isPattern(){
         user.setEmail("abc@xyz.com");
-        boolean result = emailValidation.isPattern(user.getEmail());
-        assertTrue("", result);
+        ResultValidation result = emailValidation.validation(user.getEmail());
+        assertTrue(result.getMessage(), result.getResult());
     }
 }

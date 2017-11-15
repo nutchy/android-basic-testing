@@ -13,6 +13,8 @@ public class EmailValidation {
     public ResultValidation validation(String email) {
         try {
             isNull(email);
+            isEmpty(email);
+            isNotPattern(email);
         } catch (Exception e) {
             return new ResultValidation(false, e.getMessage());
         }
@@ -26,13 +28,17 @@ public class EmailValidation {
         }
     }
 
-    public boolean isEmpty(String email) {
-        return email.isEmpty();
+    public void isEmpty(String email) throws EmailException {
+        if(email.isEmpty()){
+            throw new EmailException("Email is Empty");
+        }
     }
 
-    public boolean isPattern(String email) {
+    public void isNotPattern(String email) throws EmailException {
         Pattern validEmailPattern = Pattern.compile(EMAIL_PATTERN);
-        return validEmailPattern.matcher(email).matches();
+        if (!validEmailPattern.matcher(email).matches()){
+            throw new EmailException("Email is not Pattern");
+        }
     }
 
 
