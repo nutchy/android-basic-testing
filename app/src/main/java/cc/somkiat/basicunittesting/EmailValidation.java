@@ -26,7 +26,6 @@ public class EmailValidation {
         }
     }
 
-
     public boolean isEmpty(String email) {
         return email.isEmpty();
     }

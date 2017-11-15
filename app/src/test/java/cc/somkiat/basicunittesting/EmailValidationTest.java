@@ -37,15 +37,15 @@ public class EmailValidationTest {
 
     @Test
     public void isEmpty(){
-        EmailValidation emailValidation = new EmailValidation();
-        boolean result = emailValidation.isEmpty("");
-        assertTrue("", result);
+        user.setEmail("");
+        ResultValidation result = emailValidation.validation(user.getEmail());
+        assertFalse(result.getMessage(), result.getResult());
     }
 
     @Test
     public void isPattern(){
-        EmailValidation emailValidation = new EmailValidation();
-        boolean result = emailValidation.isPattern("abc@xyz.com");
+        user.setEmail("abc@xyz.com");
+        boolean result = emailValidation.isPattern(user.getEmail());
         assertTrue("", result);
     }
 }
