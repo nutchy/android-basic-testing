@@ -6,11 +6,12 @@ import cc.somkiat.basicunittesting.Exception.EmailException;
 import cc.somkiat.basicunittesting.Model.ResultValidation;
 import cc.somkiat.basicunittesting.Model.User;
 
-public class EmailValidation {
+public class EmailValidation implements Validation {
 
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
-    public ResultValidation validation(String email) {
+    @Override
+    public ResultValidation validate(String email) {
         try {
             isNull(email);
             isEmpty(email);
@@ -20,7 +21,6 @@ public class EmailValidation {
         }
         return new ResultValidation(true, "No Exception.");
     }
-
 
     public void isNull(String email) throws EmailException {
         if (email == null) {

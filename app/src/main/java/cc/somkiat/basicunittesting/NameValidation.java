@@ -3,9 +3,10 @@ package cc.somkiat.basicunittesting;
 import cc.somkiat.basicunittesting.Exception.NameException;
 import cc.somkiat.basicunittesting.Model.ResultValidation;
 
-class NameValidation {
+class NameValidation implements Validation{
 
-    public ResultValidation validate(String name){
+    @Override
+    public ResultValidation validate(String name) {
         try {
             isEmpty(name);
             isNull(name);
