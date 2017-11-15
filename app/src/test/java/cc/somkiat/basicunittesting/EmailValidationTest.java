@@ -48,4 +48,34 @@ public class EmailValidationTest {
         ResultValidation result = emailValidation.validation(user.getEmail());
         assertTrue(result.getMessage(), result.getResult());
     }
+
+    @Test
+    public void emailNoHostName(){
+        user.setEmail("@xyz.com");
+        ResultValidation result = emailValidation.validation(user.getEmail());
+        assertFalse(result.getMessage(), result.getResult());
+    }
+
+    @Test
+    public void emailNoDomain(){
+        user.setEmail("xyz@");
+        ResultValidation result = emailValidation.validation(user.getEmail());
+        assertFalse(result.getMessage(), result.getResult());
+    }
+
+    @Test
+    public void emailDoubleAt(){
+        user.setEmail("xyz@@xyz.com");
+        ResultValidation result = emailValidation.validation(user.getEmail());
+        assertFalse(result.getMessage(), result.getResult());
+    }
+
+    @Test
+    public void emailHostNameDoubleDot(){
+        user.setEmail("xyz..a@xyz.com");
+        ResultValidation result = emailValidation.validation(user.getEmail());
+        assertFalse(result.getMessage(), result.getResult());
+    }
+
+
 }
