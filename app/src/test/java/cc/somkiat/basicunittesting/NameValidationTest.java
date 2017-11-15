@@ -3,21 +3,27 @@ package cc.somkiat.basicunittesting;
 import org.junit.Before;
 import org.junit.Test;
 
+import cc.somkiat.basicunittesting.Model.ResultValidation;
+import cc.somkiat.basicunittesting.Model.User;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class NameValidationTest {
-    NameValidation nameValidation;
+    private NameValidation nameValidation;
+    private User user;
 
     @Before
     public void setup(){
         nameValidation = new NameValidation();
+        user = new User();
     }
 
     @Test
     public void caseEmpty(){
-        boolean result = nameValidation.isEmpty("");
-        assertTrue("", result);
+        user.setName("");
+        ResultValidation result = nameValidation.validate(user.getName());
+        assertFalse(result.getMessage(), result.getResult());
     }
 
     @Test

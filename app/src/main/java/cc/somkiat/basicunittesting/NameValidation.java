@@ -1,8 +1,23 @@
 package cc.somkiat.basicunittesting;
 
+import cc.somkiat.basicunittesting.Exception.NameException;
+import cc.somkiat.basicunittesting.Model.ResultValidation;
+
 class NameValidation {
-    public boolean isEmpty(String name) {
-        return name.isEmpty();
+
+    public ResultValidation validate(String name){
+        try {
+            isEmpty(name);
+        } catch (NameException e) {
+            return new ResultValidation(false, e.getMessage());
+        }
+        return new ResultValidation(true, "Name is correct pattern");
+    }
+
+    public void isEmpty(String name) throws NameException {
+        if(name.isEmpty()){
+            throw new NameException("Name is Empty");
+        }
     }
 
     public boolean isNull(String name) {
