@@ -24,7 +24,7 @@ class NameValidation implements Validation{
         }
     }
 
-    public void isNull(String name) throws NameException {
+    private void isNull(String name) throws NameException {
         if(name == null){
             throw new NameException("Name is null");
         }
