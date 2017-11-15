@@ -1,24 +1,38 @@
 package cc.somkiat.basicunittesting;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import cc.somkiat.basicunittesting.Model.ResultValidation;
+import cc.somkiat.basicunittesting.Model.User;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 public class EmailValidationTest {
-    @Test
-    public void isNull(){
-        EmailValidation emailValidation = new EmailValidation();
-        boolean result = emailValidation.isNull(null);
-        assertTrue("",result);
+
+    private User user;
+    private EmailValidation emailValidation;
+
+
+    @Before
+    public void init(){
+        user = new User();
+        emailValidation = new EmailValidation();
     }
 
     @Test
-    public void isNotNull(){
-        EmailValidation emailValidation = new EmailValidation();
-        boolean result = emailValidation.isNull("abc@xyz.com");
-        assertFalse("",result);
+    public void isNull(){
+        ResultValidation result = emailValidation.validation(null);
+        assertFalse(result.getMessage(),result.getResult());
     }
+
+//    @Test
+//    public void isNotNull(){
+//        EmailValidation emailValidation = new EmailValidation();
+//        boolean result = emailValidation.isNull("abc@xyz.com");
+//        assertFalse("",result);
+//    }
 
     @Test
     public void isEmpty(){
