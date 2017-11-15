@@ -8,7 +8,8 @@ class NameValidation {
     public ResultValidation validate(String name){
         try {
             isEmpty(name);
-        } catch (NameException e) {
+            isNull(name);
+        } catch (Exception e) {
             return new ResultValidation(false, e.getMessage());
         }
         return new ResultValidation(true, "Name is correct pattern");
@@ -20,8 +21,10 @@ class NameValidation {
         }
     }
 
-    public boolean isNull(String name) {
-        return name == null;
+    public void isNull(String name) throws NameException {
+        if(name == null){
+            throw new NameException("Name is null");
+        }
     }
 
     public boolean checkLength(String name) {

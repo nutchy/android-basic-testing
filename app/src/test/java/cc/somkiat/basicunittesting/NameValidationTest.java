@@ -20,7 +20,7 @@ public class NameValidationTest {
     }
 
     @Test
-    public void caseEmpty(){
+    public void isEmpty(){
         user.setName("");
         ResultValidation result = nameValidation.validate(user.getName());
         assertFalse(result.getMessage(), result.getResult());
@@ -28,15 +28,16 @@ public class NameValidationTest {
 
     @Test
     public void isNull(){
-        boolean result = nameValidation.isNull(null);
-        assertTrue("", result);
+        user.setName(null);
+        ResultValidation result = nameValidation.validate(user.getName());
+        assertFalse(result.getMessage(), result.getResult());
     }
 
-    @Test
-    public void isNotNull(){
-        boolean result = nameValidation.isNull("Hello");
-        assertFalse("", result);
-    }
+//    @Test
+//    public void isNotNull(){
+//        boolean result = nameValidation.isNull("Hello");
+//        assertFalse("", result);
+//    }
 
     @Test
     public void lengthBetweenTwoAndTwenty(){
