@@ -42,8 +42,7 @@ public class MainActivityTest {
         onView(withId(R.id.userNameInput)).perform(replaceText("somkiat"), closeSoftKeyboard());
         onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText("abc"), closeSoftKeyboard());
         onView(withId(R.id.saveButton)).perform(scrollTo(), click());
+        
     }
-
-    
 
 }

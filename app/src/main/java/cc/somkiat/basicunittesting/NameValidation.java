@@ -8,8 +8,8 @@ class NameValidation implements Validation{
     @Override
     public ResultValidation validate(String name) {
         try {
-            isEmpty(name);
             isNull(name);
+            isEmpty(name);
             notInRange(name);
             isNotContainAlphabet(name);
         } catch (Exception e) {

@@ -33,14 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println(nameValidationResult.getResult());
         System.out.println(emailValidationResult.getResult());
-
-        if(!nameValidationResult.getResult()) {
-            Toast.makeText(this, nameValidationResult.getMessage(), Toast.LENGTH_SHORT).show();
-        } else if (!emailValidationResult.getResult()) {
-            Toast.makeText(this, emailValidationResult.getMessage(), Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Save Successful", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void onRevertClick(View view) {
